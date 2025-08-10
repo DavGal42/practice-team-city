@@ -28,7 +28,6 @@ version = "2025.07"
 
 project {
     buildType(MyBuild)
-    buildType(MySecondBuild)
 }
 
 object MyBuild : BuildType({
@@ -48,28 +47,3 @@ object MyBuild : BuildType({
         }
     }
 })
-
-object MySecondBuild : BuildType({
-    name = "MySecondBuild"
-
-    vcs {
-        root(DslContext.settingsRoot)
-    }
-
-    steps {
-        script {
-            name = "Say Hello"
-            scriptContent = "echo 'Hello from TeamCity!'"
-        }
-    }
-
-    triggers {
-        vcs {
-        }
-    }
-
-    features {
-        perfmon { }
-    }
-})
-
