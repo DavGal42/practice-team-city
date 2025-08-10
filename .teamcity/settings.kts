@@ -1,6 +1,5 @@
 import jetbrains.buildServer.configs.kotlin.*
 import jetbrains.buildServer.configs.kotlin.buildFeatures.perfmon
-import jetbrains.buildServer.configs.kotlin.buildSteps.dockerCommand
 import jetbrains.buildServer.configs.kotlin.buildSteps.script
 import jetbrains.buildServer.configs.kotlin.triggers.vcs
 
@@ -45,17 +44,6 @@ object MyBuild : BuildType({
             name = "greeting"
             id = "greeting"
             scriptContent = """echo "Hello From TeamCity!""""
-        }
-        dockerCommand {
-            name = "Build SImple Docker Image"
-            id = "Build_SImple_Docker_Image"
-            commandType = build {
-                source = file {
-                    path = "Dockerfile"
-                }
-                namesAndTags = "simple-greeting-image"
-                commandArgs = "--pull"
-            }
         }
     }
 
