@@ -49,7 +49,7 @@ object MyBuild : BuildType({
     }
 })
 
-object MySecondBuild : BuildType( {
+object MySecondBuild : BuildType({
     name = "MySecondBuild"
 
     vcs {
@@ -64,8 +64,12 @@ object MySecondBuild : BuildType( {
     }
 
     triggers {
-        vsc {
-
+        vcs {
         }
     }
-} )
+
+    features {
+        perfmon { }
+    }
+})
+
