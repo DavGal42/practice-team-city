@@ -1,5 +1,6 @@
 import jetbrains.buildServer.configs.kotlin.*
 import jetbrains.buildServer.configs.kotlin.buildFeatures.perfmon
+import jetbrains.buildServer.configs.kotlin.buildSteps.python
 import jetbrains.buildServer.configs.kotlin.buildSteps.script
 import jetbrains.buildServer.configs.kotlin.triggers.vcs
 
@@ -44,6 +45,13 @@ object MyBuild : BuildType({
             name = "greeting"
             id = "greeting"
             scriptContent = """echo "Hello From TeamCity!""""
+        }
+        python {
+            name = "Run simple python script"
+            id = "Run_simple_python_script"
+            command = file {
+                filename = "main.py"
+            }
         }
     }
 
