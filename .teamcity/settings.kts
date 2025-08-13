@@ -1,6 +1,5 @@
 import jetbrains.buildServer.configs.kotlin.*
 import jetbrains.buildServer.configs.kotlin.buildFeatures.perfmon
-import jetbrains.buildServer.configs.kotlin.buildSteps.dockerCommand
 import jetbrains.buildServer.configs.kotlin.buildSteps.python
 import jetbrains.buildServer.configs.kotlin.buildSteps.script
 import jetbrains.buildServer.configs.kotlin.triggers.vcs
@@ -52,17 +51,6 @@ object MyBuild : BuildType({
             id = "Run_simple_python_script"
             command = file {
                 filename = "main.py"
-            }
-        }
-        dockerCommand {
-            name = "Build SImple Docker Image"
-            id = "Build_SImple_Docker_Image"
-            commandType = build {
-                source = file {
-                    path = "Dockerfile"
-                }
-                namesAndTags = "simple-docker-image"
-                commandArgs = "--pull"
             }
         }
     }
